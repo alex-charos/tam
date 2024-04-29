@@ -56,10 +56,15 @@ data class Resource(val id:String,
         return estimateEndOfContract(LocalDate.now())
     }
 
-    fun estimateEndOfContract(asOfDate : LocalDate) : LocalDate {
+    fun daysRemaining(asOfDate : LocalDate) : Int {
         val daysSpent = calculateWorkingDays(asOfDate)
         var daysRemaining = totalDays - daysSpent
-        if (daysRemaining == 0) {
+        return daysRemaining
+    }
+
+    fun estimateEndOfContract(asOfDate : LocalDate) : LocalDate {
+
+        if (daysRemaining(asOfDate) == 0) {
             return asOfDate;
         }
 

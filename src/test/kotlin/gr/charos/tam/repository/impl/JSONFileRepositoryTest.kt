@@ -17,7 +17,7 @@ class JSONFileRepositoryTest {
         om.registerModules(JavaTimeModule())
         om.configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false)
         val repository = JSONFileRepository("/Users/alexandroscharos/projects/tam/", om)
-        val res = Resource("1","Alex","OPAP",LocalDate.now(),123, listOf(LocalDate.now()))
+        val res = Resource("1","Alex","OPAP",LocalDate.now(),123)
         res.addLeave(LocalDate.now().minusDays(23))
         repository.save(res)
 

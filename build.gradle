@@ -22,6 +22,9 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter'
 	implementation 'org.springframework.boot:spring-boot-starter-json'
 	implementation 'com.fasterxml.jackson.datatype:jackson-datatype-jsr310'
+	implementation 'org.springframework.shell:spring-shell-starter'
+
+
 
 	implementation 'com.fasterxml.jackson.module:jackson-module-kotlin'
 
@@ -43,4 +46,10 @@ tasks.withType(KotlinCompile) {
 
 tasks.named('test') {
 	useJUnitPlatform()
+}
+
+dependencyManagement {
+	imports {
+		mavenBom "org.springframework.shell:spring-shell-dependencies:3.2.4"
+	}
 }
